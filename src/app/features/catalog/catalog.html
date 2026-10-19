@@ -1,0 +1,19 @@
+<div class="catalogo-container">
+  <h1>Catálogo de Pantalones</h1>
+<div class="tarjetas-grid">
+    @for (item of pantalones(); track item.id) {
+      <div class="tarjeta-pantalon">
+        <h3 class="modelo-nombre">{{ item.modelName }}</h3>
+        <p class="info-item"><strong>Talle:</strong> {{ item.size }}</p>
+        <p class="info-item"><strong>Corte:</strong> {{ item.cut }}</p>
+        <p class="precio">${{ item.salePrice }}</p>
+        <p class="disponibilidad" [class.disponible]="item.isInStore">
+          {{ item.isInStore ? 'En Tienda' : 'Sin Stock en Tienda' }}
+        </p>
+        <button class="btn-ver" (click)="verMas(item.id!)">Ver más →</button>
+      </div>
+    } @empty {
+      <p class="empty-msg">No hay pantalones en el inventario.</p>
+    }
+  </div>
+</div>

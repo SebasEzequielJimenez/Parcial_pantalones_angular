@@ -1,0 +1,27 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--font-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--font-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.active-link {
+  color: var(--accent-color) !important;
+  font-weight: bold;
+}

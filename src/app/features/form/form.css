@@ -1,0 +1,83 @@
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: var(--font-color);
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+label {
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #ffffff;
+  border: 1px solid var(--background-darker-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.radios-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  border: 1px solid var(--font-color);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-borrar {
+  background-color: var(--background-darker-color);
+}
+
+.btn-enviar {
+  background-color: var(--background-lighter-color);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

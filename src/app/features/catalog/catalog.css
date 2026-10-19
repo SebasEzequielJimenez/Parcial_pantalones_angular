@@ -1,0 +1,93 @@
+.catalogo-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--font-color);
+  margin-bottom: 2rem;
+}
+
+/* Grilla Adaptable de Tarjetas */
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Estilo de cada Tarjeta */
+.tarjeta-pantalon {
+  background-color: var(--background-lighter-color);
+  border: 1px solid var(--font-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-pantalon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.modelo-nombre {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.25rem;
+  color: var(--font-color);
+  border-bottom: 1px solid var(--background-darker-color);
+  padding-bottom: 0.5rem;
+}
+
+.info-item {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: var(--font-color);
+}
+
+.precio {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 0.8rem 0 0.4rem;
+}
+
+.disponibilidad {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--font-error-color);
+  margin-bottom: 1rem;
+}
+
+.disponibilidad.disponible {
+  color: #2e7d32;
+}
+
+.btn-ver {
+  background-color: var(--background-darker-color);
+  color: var(--font-color);
+  border: 1px solid var(--font-color);
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-ver:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.empty-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--font-color);
+}

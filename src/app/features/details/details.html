@@ -1,0 +1,62 @@
+<div class="detalles-container">
+  @if (pantalon(); as item) {
+    <div class="card-detalles">
+      <h2 class="modelo-titulo">{{ item.modelName }}</h2>
+
+      <p class="sub-info">Talle {{ item.size }} | Corte {{ item.cut }}</p>
+      <p><strong>Precio de venta:</strong> ${{ item.salePrice }}</p>
+      <p><strong>{{ item.isInStore ? 'Disponible en tienda' : 'No disponible en tienda' }}</strong></p>
+
+      <div class="acciones">
+        <button class="btn-action" (click)="toggleEditar()">
+          {{ modoEdicion() ? 'Cancelar' : 'Editar' }}
+        </button>
+        <button 
+          class="btn-action btn-borrar" 
+          [disabled]="modoEdicion()" 
+          (click)="solicitarBorrado()">
+          Borrar
+        </button>
+      </div>
+    </div>
+
+    @if (modoEdicion()) {
+      <div class="seccion-edicion">
+        <app-formulario 
+          [pantalonEditar]="item" 
+          (guardado)="onActualizado($event)">
+        </app-formulario>
+      </div>
+    }
+
+    <!-- Modal Confirmación Eliminar (Única versión limpia) -->
+    @if (mostrarModalConfirmacion()) {
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <h3>¿Eliminar este pantalón?</h3>
+          <p>Esta acción eliminará el modelo <strong>{{ item.modelName }}</strong>.</p>
+          <div class="modal-actions">
+            <button class="btn-modal btn-cancelar" (click)="cancelarBorrado()">Cancelar</button>
+            <button class="btn-modal btn-confirmar" (click)="confirmarBorrado(item.id!)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    }
+
+  } @else if (!mensajeErrorModal()) {
+    <p class="cargando">Cargando información del pantalón...</p>
+  }
+
+  <!-- Modal Error ID Inexistente -->
+  @if (mensajeErrorModal(); as mensaje) {
+    <div class="modal-backdrop">
+      <div class="modal-box modal-error">
+        <h3>Pantalón no encontrado</h3>
+        <p>{{ mensaje }}</p>
+        <div class="modal-actions">
+          <button class="btn-modal btn-confirmar" (click)="cerrarErrorYRedirigir()">Volver al Catálogo</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

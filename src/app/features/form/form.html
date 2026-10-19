@@ -1,0 +1,85 @@
+<div class="form-container">
+  <h2>{{ pantalonEditar() ? 'Editando Pantalón' : 'Agregando Pantalones' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Modelo -->
+    <div class="field">
+      <div class="label-row">
+        <label>Modelo</label>
+        @if (form.controls.modelName.touched && form.controls.modelName.hasError('required')) {
+          <span class="error-msg">El modelo es requerido</span>
+        }
+      </div>
+      <input type="text" formControlName="modelName" placeholder="Jeans Clásico 501" />
+    </div>
+
+    <!-- Precio de Venta -->
+    <div class="field">
+      <div class="label-row">
+        <label>Precio de Venta</label>
+        @if (form.controls.salePrice.touched) {
+          @if (form.controls.salePrice.hasError('required')) {
+            <span class="error-msg">El precio es requerido</span>
+          } @else if (form.controls.salePrice.hasError('min')) {
+            <span class="error-msg">El precio de venta no puede ser negativo</span>
+          }
+        }
+      </div>
+      <input type="number" formControlName="salePrice" />
+    </div>
+
+    <!-- Disponible en Tienda -->
+    <div class="field-checkbox">
+      <label>Disponible en tienda</label>
+      <input type="checkbox" formControlName="isInStore" />
+    </div>
+
+    <!-- Talle (Radios) -->
+    <div class="field">
+      <div class="label-row">
+        <label>Talle</label>
+        @if (form.controls.size.touched && form.controls.size.hasError('required')) {
+          <span class="error-msg">El talle es requerido</span>
+        }
+      </div>
+      <div class="radios-group">
+        @for (t of talles; track t) {
+          <label class="radio-label">
+            <strong>{{ t }}</strong>
+            <input type="radio" formControlName="size" [value]="t" />
+          </label>
+        }
+      </div>
+    </div>
+
+    <!-- Corte (Select) -->
+    <div class="field">
+      <div class="label-row">
+        <label>Corte</label>
+        @if (form.controls.cut.touched && form.controls.cut.hasError('required')) {
+          <span class="error-msg">El corte es requerido</span>
+        }
+      </div>
+      <select formControlName="cut">
+        <option value="" disabled>Seleccione el corte</option>
+        @for (c of cortes; track c) {
+          <option [value]="c">{{ c }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Notas / Descripción -->
+    <div class="field">
+      <textarea formControlName="notes" rows="4" placeholder="Tela denim pesada, 100% algodón..."></textarea>
+      @if (form.controls.notes.hasError('maxlength')) {
+        <span class="error-msg">Máximo 200 caracteres</span>
+      }
+    </div>
+
+    <!-- Botones -->
+    <div class="buttons">
+      <button type="button" class="btn-borrar" (click)="onReset()">Borrar</button>
+      <button type="submit" class="btn-enviar" [disabled]="form.invalid">Enviar</button>
+    </div>
+  </form>
+</div>

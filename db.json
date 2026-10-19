@@ -1,0 +1,41 @@
+{
+  "trousers": [
+    {
+      "id": "1r1g",
+      "modelName": "Jeans Clásico 501",
+      "salePrice": 79.99,
+      "isInStore": true,
+      "size": "XS",
+      "cut": "Recto",
+      "notes": "Tela denim pesada, 100% algodón. Clásico atemporal."
+    },
+    {
+      "id": "1p2l",
+      "modelName": "Pantalón Chino Delgado",
+      "salePrice": 55.5,
+      "isInStore": true,
+      "size": "M",
+      "cut": "Slim",
+      "notes": "Ideal para oficina o eventos casuales. Disponible en varios colores."
+    },
+    {
+      "id": "k03u",
+      "modelName": "Jogger Deportivo",
+      "salePrice": 45,
+      "isInStore": false,
+      "size": "L",
+      "cut": "Jogger",
+      "notes": "Material sintético con tecnología de secado rápido."
+    },
+    {
+      "modelName": "jogger casual",
+      "salePrice": 5000,
+      "isInStore": false,
+      "size": "XL",
+      "cut": "Skinny",
+      "notes": "muy lindo, y cómodo",
+      "id": "-INJ4vb1zy0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

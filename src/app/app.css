@@ -1,0 +1,13 @@
+.main-content {
+  min-height: calc(100vh - 120px);
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--background-darker-color);
+  color: var(--font-color);
+  border-top: 1px solid var(--font-color);
+}
